@@ -11,9 +11,8 @@ Pomegranate Release 0.1 (January 5th 2009)
 SYNOPSIS
 --------
 
-Connie is a Ruby library that implements [SPARQL](http://www.w3.org/TR/rdf-sparql-query/) given a parse tree of a SPARQL query and a set of RDF triples.  Implements SPARQL properties as a set of constraints.  The constraints are executed by [Gecode/R](http://gecoder.rubyforge.org/), a Ruby bridge to Gecode, an open source library for constraint programming written in C++.
+Connie is a Ruby library that implements [SPARQL](http://www.w3.org/TR/rdf-sparql-query/) given a parse tree of a SPARQL query and a set of RDF triples.  Implements SPARQL properties as a set of constraints.  The constraints are executed by [Gecode/R](http://gecoder.rubyforge.org/), a Ruby bridge to Gecode, an open source library for constraint programming written in C.
 
-While Connie can certainly be used to service SPARQL queries written by hand in Connie's parse tree syntax, the intended use is as a component that receives a parse tree from a SPARQL parser.
 
 FEATURE LIST
 ------------
@@ -25,7 +24,7 @@ USAGE
 
 1. **Make Sure You've Got the Dependencies installed**
 
-Connie depends on Gecode/R (http://gecode.rubyforge.org).
+Connie depends on Gecode/R (http://gecode.rubyforge.org) and Reddy (http://www.github.com/tommorris/reddy).
 
   > sudo gem install gecoder-with-gecode
 
@@ -39,9 +38,7 @@ Connie depends on Gecode/R (http://gecode.rubyforge.org).
 
 3. **Require the gem in your code, play with it**
 
-For usage, the best thing is to click through the [documentation](http://pius.github.com/connie).  If you need more guidance, check out the specs, which demonstrate precisely how to feed Connie a SPARQL query parse tree and run the engine.
-
-I'm still bringing the documentation up to where I'd like it to be; please do feel free to contact me if you've got any questions.
+For usage, the best thing is to click through the [documentation](http://pius.github.com/connie).  I tried to make it really thorough.  If you need more guidance, check out the specs, which demonstrate precisely how to feed Connie a SPARQL query parse tree and run the engine.
 
 
 4. **Contribute!**
