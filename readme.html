@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="style.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="syntax_highlight.css" type="text/css" charset="utf-8" />
+
+    <title>README</title>
+  </head>
+  <body>
+    <div id="content">
+      <div class="section docstring readme">
+        <h1>Connie Release 0.0.1 (January 5th 2009)</h1>
+
+        <p><strong>Git</strong>: <a href="http://github.com/pius/connie">http://github.com/pius/connie</a> <br /><strong>Author</strong>: Pius Uzamere, <a href="http://www.uyiosa.com">The Uyiosa Corporation</a></p>
+
+        <p><strong>Copyright</strong>: Pius Uzamere © 2009 <strong>License</strong>: The Lesser GNU Public License</p>
+
+        <h2>SYNOPSIS</h2>
+
+        <p>Connie is a Ruby library that implements <a href="http://www.w3.org/TR/rdf-sparql-query/">SPARQL</a> given a parse tree of a SPARQL query and a set of RDF triples. Implements SPARQL properties as a set of constraints. The constraints are executed by <a href="http://gecoder.rubyforge.org/">Gecode/R</a>, a Ruby bridge to Gecode, an open source library for constraint programming written in C.</p>
+
+        <h2>FEATURE LIST</h2>
+
+        <ol>
+        <li><strong>Connie can handle simple, univariate triple patterns</strong>: When finished, this library will have a full test suite and can serve as a maintainable reference implementation of a SPARQL engine in Ruby. Currently, only very basic queries are supported. Please see the spec suite for the latest usage examples or check out the documentation for more details.</li>
+        </ol>
+
+        <h2>USAGE</h2>
+
+        <ol>
+        <li><strong>Make Sure You&#8217;ve Got the Dependencies installed</strong></li>
+        </ol>
+
+        <p>Connie depends on Gecode/R (http://gecode.rubyforge.org) and Reddy (http://www.github.com/tommorris/reddy).</p>
+
+        <p>&gt; sudo gem install gecoder-with-gecode</p>
+
+        <ol>
+        <li><strong>Clone the Repository and Install the Connie Gem from Source</strong></li>
+        </ol>
+
+        <p>&gt; git clone git://github.com/pius/connie.git &gt; cd connie &gt; gem build connie.gemspec &gt; sudo gem install connie</p>
+
+        <ol>
+        <li><strong>Require the gem in your code, play with it</strong></li>
+
+        </ol>
+
+        <p>For usage, the best thing is to click through the <a href="http://pius.github.com/connie">documentation</a>. I tried to make it really thorough. If you need more guidance, check out the specs, which demonstrate precisely how to feed Connie a SPARQL query parse tree and run the engine.</p>
+
+        <ol>
+        <li><strong>Contribute!</strong></li>
+        </ol>
+
+        <p>Fork my <a href="http://github.com/pius/sparql">repository</a>, make some changes, and send along a pull request!</p>
+
+        <p>The best way to contribute is to add a unit test for a specific SPARQL parse tree and then tweak the code such that your new test case plus all the others pass.</p>
+
+        <h2>COPYRIGHT</h2>
+
+        <p>Connie was created in 2009 by Pius Uzamere (pius -AT- alum -DOT- mit -DOT- edu) and is <br />licensed under the LGPL.</p></div></div>
+
+
+
+
+
+    
+    
+      </div>
+    </div>
+  </body>
+</html>

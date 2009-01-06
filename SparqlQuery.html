@@ -1,0 +1,505 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="style.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="syntax_highlight.css" type="text/css" charset="utf-8" />
+
+    <script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="app.js" type="text/javascript" charset="utf-8"></script>
+    <title>Class: SparqlQuery</title>
+  </head>
+  <body>
+    <div id="content">
+      <div class="section class SparqlQuery">
+  <h1 class="title">Class: SparqlQuery</h1>
+  <div class="section mixins">
+  <h1>Included Modules</h1>
+  <p>Gecode::Mixin, <a href='SparqlQuery/SparqlConstraints.html' title='SparqlConstraints'>SparqlConstraints</a></p>
+</div><div class="section attributes">
+  <h1>Attributes</h1>
+
+  
+    <div class="instance">
+      <h2>Instance Attributes</h2>
+      <table>
+      
+        <tr>
+          <th class="name">element_mapping</td>
+          <td class="readwrite">
+            [<span id='element_mapping-instance_method'>R</span>W] 
+          </td>
+          <td class="visibility">
+            public
+          </td>
+          <td class="docstring">
+            <p>
+Returns the value of attribute <tt>element_mapping</tt>.
+</p>
+
+            
+          </td>
+        </tr>
+      
+        <tr>
+          <th class="name">variables_to_solve_for</td>
+          <td class="readwrite">
+            [<span id='variables_to_solve_for-instance_method'>R</span>W] 
+          </td>
+          <td class="visibility">
+            public
+          </td>
+          <td class="docstring">
+            <p>
+Returns the value of attribute <tt>variables_to_solve_for</tt>.
+</p>
+
+            
+          </td>
+        </tr>
+      
+      </table>
+    </div>
+  
+</div><div class="section constants">
+  
+</div><div class="section constructor">
+<h1>Constructor Summary</h1>
+  <div id="initialize-instance_method" class="section method">
+  <div class="details_title">
+  <div class='section methodsignature'>
+  <tt class='def'>
+    <span class='visibility'>public</span>
+    <span class='return_types'></span>
+    <span class='name'>initialize</span><span class='args'>(query_clauses, input_triples)</span>
+    <span class='block'></span>
+  </tt>
+</div>
+
+</div><div class="section docstring">
+  <p>
+Instantiates a new query.
+</p>
+<h4>Returns</h4>
+<pre class="code">
+  <span class='a identifier id'>a</span> <span class='query identifier id'>query</span> <span class='object identifier id'>object</span> <span class='that identifier id'>that</span> <span class='can identifier id'>can</span> <span class='be identifier id'>be</span> <span class='solved identifier id'>solved</span>
+</pre>
+<h4>Example</h4>
+
+</div><div class="section tags">
+  <h2>Meta Tags</h2>
+  <div class="author">
+  <h3>Author:</h3>
+  <dl>
+  
+    <dt>
+      
+      
+    </dt>
+    <dd>
+      <span class='desc'><p>
+Pius Uzamere
+</p>
+</span>
+    </dd>
+  
+  </dl>
+</div>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/connie.rb', line 112</span>
+
+<span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='query_clauses identifier id'>query_clauses</span><span class='comma token'>,</span> <span class='input_triples identifier id'>input_triples</span><span class='rparen token'>)</span>
+  <span class='@query ivar id'>@query</span> <span class='assign token'>=</span> <span class='query_clauses identifier id'>query_clauses</span>
+  <span class='@element_mapping ivar id'>@element_mapping</span> <span class='assign token'>=</span> <span class='the_property_map identifier id'>the_property_map</span><span class='lparen token'>(</span><span class='input_triples identifier id'>input_triples</span><span class='rparen token'>)</span>
+  <span class='@universe ivar id'>@universe</span> <span class='assign token'>=</span> <span class='input_triples identifier id'>input_triples</span>
+  <span class='comment val'>#note that the selected/constructed variables will be a subset of these</span>
+  
+  <span class='n identifier id'>n</span> <span class='assign token'>=</span> <span class='@element_mapping ivar id'>@element_mapping</span><span class='dot token'>.</span><span class='size identifier id'>size</span>
+ 
+ <span class='@variables_to_solve_for ivar id'>@variables_to_solve_for</span> <span class='assign token'>=</span> <span class='int_var_array identifier id'>int_var_array</span><span class='lparen token'>(</span><span class='integer val'>3</span> <span class='mult op'>*</span> <span class='query_clauses identifier id'>query_clauses</span><span class='lbrack token'>[</span><span class='symbol val'>:where</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='size identifier id'>size</span><span class='comma token'>,</span> <span class='integer val'>0</span><span class='dot3 op'>...</span><span class='n identifier id'>n</span><span class='rparen token'>)</span>
+ 
+ <span class='@unbound_vars ivar id'>@unbound_vars</span> <span class='assign token'>=</span> <span class='process_query identifier id'>process_query</span><span class='lparen token'>(</span><span class='@query ivar id'>@query</span><span class='rparen token'>)</span>
+ 
+ <span class='comment val'># TODO: learn what heuristic to use here</span>
+ <span class='branch_on identifier id'>branch_on</span> <span class='@variables_to_solve_for ivar id'>@variables_to_solve_for</span><span class='comma token'>,</span> <span class='symbol val'>:variable</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='symbol val'>:smallest_size</span><span class='comma token'>,</span> <span class='symbol val'>:value</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='symbol val'>:min</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+</div>  <div class="section visibilitygroup public">
+    <h1>Public Visibility</h1>
+      <div class="section methodsummary class public">
+    <div class="included">
+  
+  <div>
+    <h1>Public Class Methods Included from <a href='SparqlQuery/SparqlConstraints.html' title='SparqlConstraints'>SparqlConstraints</a></h1>
+    <p><span class='name'><a href='SparqlConstraints.html#correspond_to%3F-class_method' title='correspond_to?'>correspond_to?</a></span>, <span class='name'><a href='SparqlConstraints.html#term_equals-class_method' title='term_equals'>term_equals</a></span>, <span class='name'><a href='SparqlConstraints.html#term_must_fit_into-class_method' title='term_must_fit_into'>term_must_fit_into</a></span>, <span class='name'><a href='SparqlConstraints.html#terms_with_patterns_that_otherwise_fit-class_method' title='terms_with_patterns_that_otherwise_fit'>terms_with_patterns_that_otherwise_fit</a></span></p>
+  </div>
+  
+</div>
+<div class="clear"></div>
+  </div>
+  <div class="section methodsummary instance public">
+    <h1>Public Instance Method Summary</h1>
+<table class="summary">
+  
+    <tr>
+      <th class="signature">
+        <span class='name'><a href='#process_query-instance_method' title='#process_query'>#process_query</a></span><span class='args'>(query_clauses, unbound_vars = [])</span>
+        <span class='block'></span>
+        
+      </th>
+      <td class="docstring">
+        <p>
+Instantiates the constraints based on the parse tree of the query.
+</p>
+
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        <span class='name'><a href='#the_property_map-instance_method' title='#the_property_map'>#the_property_map</a></span><span class='args'>(input_triples)</span>
+        <span class='block'></span>
+        
+      </th>
+      <td class="docstring">
+        
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        <span class='name'><a href='#to_s-instance_method' title='#to_s'>#to_s</a></span><span class='args'>(map = @element_mapping)</span>
+        <span class='block'></span>
+        
+      </th>
+      <td class="docstring">
+        
+        
+      </td>
+    </tr>
+  
+    <tr>
+      <th class="signature">
+        <span class='name'><a href='#vars_from_pattern-instance_method' title='#vars_from_pattern'>#vars_from_pattern</a></span><span class='args'>(pattern)</span>
+        <span class='block'></span>
+        
+      </th>
+      <td class="docstring">
+        
+        
+      </td>
+    </tr>
+  
+</table>
+  </div>
+<div class="section methoddetails instance public">
+  <h1>Public Instance Method Details</h1>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>process_query</h3>
+</div><div id="process_query-instance_method" class="section method">
+  <div class="details_title">
+  <div class='section methodsignature'>
+  <tt class='def'>
+    <span class='visibility'>public</span>
+    <span class='return_types'></span>
+    <span class='name'>process_query</span><span class='args'>(query_clauses, unbound_vars = [])</span>
+    <span class='block'></span>
+  </tt>
+</div>
+
+</div><div class="section docstring">
+  <p>
+Instantiates the constraints based on the parse tree of the query.
+</p>
+<h4>Side Effects</h4>
+<pre class="code">
+  <span class='creates identifier id'>creates</span> <span class='constraints identifier id'>constraints</span> <span class='based identifier id'>based</span> <span class='on identifier id'>on</span> <span class='the identifier id'>the</span> <span class='where identifier id'>where</span> <span class='clauses identifier id'>clauses</span>
+  <span class='determines identifier id'>determines</span> <span class='views identifier id'>views</span> <span class='on identifier id'>on</span> <span class='the identifier id'>the</span> <span class='result identifier id'>result</span> <span class='based identifier id'>based</span> <span class='on identifier id'>on</span> <span class='whether identifier id'>whether</span> <span class='query identifier id'>query</span> <span class='is identifier id'>is</span> <span class='SELECT constant id'>SELECT</span> <span class='or or kw'>or</span> <span class='CONSTRUCT constant id'>CONSTRUCT</span>
+</pre>
+<h4>Returns</h4>
+<pre class="code">
+  <span class='an identifier id'>an</span> <span class='array identifier id'>array</span> <span class='of identifier id'>of</span> <span class='the identifier id'>the</span> <span class='unbound identifier id'>unbound</span> <span class='vars identifier id'>vars</span>
+</pre>
+<h4>Example</h4>
+<pre class="code">
+  <span class='process_query identifier id'>process_query</span><span class='lparen token'>(</span><span class='lbrace token'>{</span><span class='symbol val'>:select</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='dstring node'>%w(x)</span><span class='comma token'>,</span>
+                    <span class='symbol val'>:where</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrack token'>[</span><span class='lbrace token'>{</span><span class='symbol val'>:unbound</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;x&quot;</span><span class='comma token'>,</span> <span class='symbol val'>:predicate</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;foaf:knows&quot;</span><span class='comma token'>,</span> <span class='symbol val'>:subject</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>&quot;foo&quot;</span><span class='rbrace token'>}</span><span class='rbrack token'>]</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='assign token'>=</span><span class='gt op'>&gt;</span>  <span class='lbrack token'>[</span><span class='string val'>'x'</span><span class='rbrack token'>]</span>
+</pre>
+
+</div><div class="section tags">
+  <h2>Meta Tags</h2>
+  <div class="author">
+  <h3>Author:</h3>
+  <dl>
+  
+    <dt>
+      
+      
+    </dt>
+    <dd>
+      <span class='desc'><p>
+Pius Uzamere
+</p>
+</span>
+    </dd>
+  
+  </dl>
+</div>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/connie.rb', line 146</span>
+
+<span class='def def kw'>def</span> <span class='process_query identifier id'>process_query</span><span class='lparen token'>(</span><span class='query_clauses identifier id'>query_clauses</span><span class='comma token'>,</span> <span class='unbound_vars identifier id'>unbound_vars</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
+  <span class='if if kw'>if</span> <span class='query_clauses identifier id'>query_clauses</span><span class='lbrack token'>[</span><span class='colon op'>:</span><span class='select identifier id'>select</span><span class='rbrack token'>]</span>
+    <span class='raise identifier id'>raise</span> <span class='string val'>&quot;malformed query parse&quot;</span> <span class='unless unless_mod kw'>unless</span> <span class='query_clauses identifier id'>query_clauses</span><span class='lbrack token'>[</span><span class='symbol val'>:select</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='instance_of? fid id'>instance_of?</span><span class='lparen token'>(</span><span class='Array constant id'>Array</span><span class='rparen token'>)</span>
+    <span class='query_clauses identifier id'>query_clauses</span><span class='lbrack token'>[</span><span class='symbol val'>:select</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='term identifier id'>term</span><span class='bitor op'>|</span>
+      <span class='comment val'>#SparqlConstraints.term_equals(term, clause[:subject], @element_mapping) if clause[:subject]</span>
+    <span class='rbrace token'>}</span>   
+  <span class='end end kw'>end</span>
+
+  <span class='if if kw'>if</span> <span class='query_clauses identifier id'>query_clauses</span><span class='lbrack token'>[</span><span class='colon op'>:</span><span class='construct identifier id'>construct</span><span class='rbrack token'>]</span>
+     <span class='comment val'>#CONSTRUCT takes a query pattern and builds an RDF graph based on it</span>
+    <span class='raise identifier id'>raise</span> <span class='string val'>&quot;CONSTRUCT queries not supported yet, sorry.&quot;</span>
+    <span class='c identifier id'>c</span> <span class='assign token'>=</span> <span class='query_clauses identifier id'>query_clauses</span><span class='lbrack token'>[</span><span class='symbol val'>:construct</span><span class='rbrack token'>]</span>
+    <span class='raise identifier id'>raise</span> <span class='string val'>&quot;malformed query parse&quot;</span> <span class='unless unless_mod kw'>unless</span> <span class='lparen token'>(</span><span class='c identifier id'>c</span><span class='dot token'>.</span><span class='respond_to? fid id'>respond_to?</span><span class='lparen token'>(</span><span class='symbol val'>:subject</span><span class='rparen token'>)</span> <span class='bitand op'>&amp;</span> <span class='c identifier id'>c</span><span class='dot token'>.</span><span class='respond_to? fid id'>respond_to?</span><span class='lparen token'>(</span><span class='symbol val'>:predicate</span><span class='rparen token'>)</span> <span class='bitand op'>&amp;</span> <span class='c identifier id'>c</span><span class='dot token'>.</span><span class='respond_to? fid id'>respond_to?</span><span class='lparen token'>(</span><span class='symbol val'>:object</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+
+  <span class='if if kw'>if</span> <span class='query_clauses identifier id'>query_clauses</span><span class='lbrack token'>[</span><span class='colon op'>:</span><span class='where identifier id'>where</span><span class='rbrack token'>]</span>
+    <span class='raise identifier id'>raise</span> <span class='string val'>&quot;malformed query parse: query_clauses[:where] should be an array&quot;</span> <span class='unless unless_mod kw'>unless</span> <span class='query_clauses identifier id'>query_clauses</span><span class='lbrack token'>[</span><span class='symbol val'>:where</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='instance_of? fid id'>instance_of?</span><span class='lparen token'>(</span><span class='Array constant id'>Array</span><span class='rparen token'>)</span>
+
+    <span class='query_clauses identifier id'>query_clauses</span><span class='lbrack token'>[</span><span class='symbol val'>:where</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='each_with_index identifier id'>each_with_index</span> <span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='clause identifier id'>clause</span><span class='comma token'>,</span> <span class='index identifier id'>index</span><span class='bitor op'>|</span>
+      <span class='raise identifier id'>raise</span> <span class='string val'>&quot;malformed query parse: each where clause should have an unbound variable&quot;</span> <span class='unless unless_mod kw'>unless</span> <span class='clause identifier id'>clause</span><span class='lbrack token'>[</span><span class='symbol val'>:unbound</span><span class='rbrack token'>]</span>
+      <span class='unbound_vars identifier id'>unbound_vars</span> <span class='lshft op'>&lt;&lt;</span> <span class='clause identifier id'>clause</span><span class='lbrack token'>[</span><span class='symbol val'>:unbound</span><span class='rbrack token'>]</span>
+      <span class='g identifier id'>g</span> <span class='assign token'>=</span> <span class='SparqlConstraints constant id'>SparqlConstraints</span><span class='dot token'>.</span><span class='term_must_fit_into identifier id'>term_must_fit_into</span><span class='lparen token'>(</span><span class='@variables_to_solve_for ivar id'>@variables_to_solve_for</span><span class='comma token'>,</span> <span class='lparen token'>(</span><span class='unbound_vars identifier id'>unbound_vars</span><span class='dot token'>.</span><span class='size identifier id'>size</span> <span class='minus op'>-</span> <span class='integer val'>1</span><span class='rparen token'>)</span><span class='comma token'>,</span> <span class='clause identifier id'>clause</span><span class='comma token'>,</span> <span class='@universe ivar id'>@universe</span><span class='comma token'>,</span> <span class='@element_mapping ivar id'>@element_mapping</span><span class='rparen token'>)</span> <span class='if if_mod kw'>if</span> <span class='clause identifier id'>clause</span><span class='lbrack token'>[</span><span class='symbol val'>:unbound</span><span class='rbrack token'>]</span>
+      <span class='if if kw'>if</span> <span class='index identifier id'>index</span> <span class='eq op'>==</span> <span class='lparen token'>(</span><span class='query_clauses identifier id'>query_clauses</span><span class='lbrack token'>[</span><span class='colon op'>:</span><span class='where identifier id'>where</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='size identifier id'>size</span> <span class='minus op'>-</span> <span class='integer val'>1</span><span class='rparen token'>)</span>
+        <span class='@variables_to_solve_for ivar id'>@variables_to_solve_for</span><span class='dot token'>.</span><span class='reverse identifier id'>reverse</span><span class='dot token'>.</span><span class='slice! fid id'>slice!</span><span class='lparen token'>(</span><span class='integer val'>0</span><span class='comma token'>,</span><span class='lparen token'>(</span><span class='unbound_vars identifier id'>unbound_vars</span><span class='dot token'>.</span><span class='size identifier id'>size</span><span class='rparen token'>)</span><span class='rparen token'>)</span> <span class='comment val'># CAREFUL.  Doesn't seem to do what I want.</span>
+      <span class='end end kw'>end</span>
+    <span class='rbrace token'>}</span>
+  <span class='end end kw'>end</span>
+  <span class='return return kw'>return</span> <span class='unbound_vars identifier id'>unbound_vars</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>the_property_map</h3>
+</div><div id="the_property_map-instance_method" class="section method">
+  <div class="details_title">
+  <div class='section methodsignature'>
+  <tt class='def'>
+    <span class='visibility'>public</span>
+    <span class='return_types'></span>
+    <span class='name'>the_property_map</span><span class='args'>(input_triples)</span>
+    <span class='block'></span>
+  </tt>
+</div>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+89
+90
+91
+92
+93</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/connie.rb', line 89</span>
+
+<span class='def def kw'>def</span> <span class='the_property_map identifier id'>the_property_map</span><span class='lparen token'>(</span><span class='input_triples identifier id'>input_triples</span><span class='rparen token'>)</span>
+  <span class='props identifier id'>props</span> <span class='assign token'>=</span> <span class='input_triples identifier id'>input_triples</span><span class='dot token'>.</span><span class='collect identifier id'>collect</span> <span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='triple identifier id'>triple</span><span class='bitor op'>|</span>
+       <span class='triple identifier id'>triple</span><span class='dot token'>.</span><span class='to_array identifier id'>to_array</span>
+    <span class='rbrace token'>}</span><span class='dot token'>.</span><span class='flatten identifier id'>flatten</span><span class='dot token'>.</span><span class='collect identifier id'>collect</span><span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='e identifier id'>e</span><span class='bitor op'>|</span> <span class='e identifier id'>e</span><span class='dot token'>.</span><span class='value identifier id'>value</span><span class='rbrace token'>}</span><span class='dot token'>.</span><span class='uniq identifier id'>uniq</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>to_s</h3>
+</div><div id="to_s-instance_method" class="section method">
+  <div class="details_title">
+  <div class='section methodsignature'>
+  <tt class='def'>
+    <span class='visibility'>public</span>
+    <span class='return_types'></span>
+    <span class='name'>to_s</span><span class='args'>(map = @element_mapping)</span>
+    <span class='block'></span>
+  </tt>
+</div>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+181
+182
+183</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/connie.rb', line 181</span>
+
+<span class='def def kw'>def</span> <span class='to_s identifier id'>to_s</span><span class='lparen token'>(</span><span class='map identifier id'>map</span> <span class='assign token'>=</span> <span class='@element_mapping ivar id'>@element_mapping</span><span class='rparen token'>)</span>
+  <span class='rows identifier id'>rows</span> <span class='assign token'>=</span> <span class='@variables_to_solve_for ivar id'>@variables_to_solve_for</span><span class='dot token'>.</span><span class='values identifier id'>values</span><span class='comment val'>#.collect {|element| map[element]}</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+    <div class="method">
+      <div class="method_header">
+  <h3>vars_from_pattern</h3>
+</div><div id="vars_from_pattern-instance_method" class="section method">
+  <div class="details_title">
+  <div class='section methodsignature'>
+  <tt class='def'>
+    <span class='visibility'>public</span>
+    <span class='return_types'></span>
+    <span class='name'>vars_from_pattern</span><span class='args'>(pattern)</span>
+    <span class='block'></span>
+  </tt>
+</div>
+
+</div><div class="section source">
+  <span>[<a class="source_link" href="#">View source</a>]</span>
+  <div class="source_code">
+    <table>
+      <tr>
+        <td>
+          <pre class="lines">
+
+
+176
+177
+178
+179</pre>
+        </td>
+        <td>
+          <pre class="code"><span class="info file"># File 'lib/connie.rb', line 176</span>
+
+<span class='def def kw'>def</span> <span class='vars_from_pattern identifier id'>vars_from_pattern</span><span class='lparen token'>(</span><span class='pattern identifier id'>pattern</span><span class='rparen token'>)</span>
+  <span class='unbound_vars identifier id'>unbound_vars</span> <span class='assign token'>=</span> <span class='pattern identifier id'>pattern</span><span class='dot token'>.</span><span class='values identifier id'>values</span><span class='dot token'>.</span><span class='select identifier id'>select</span> <span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='val identifier id'>val</span><span class='bitor op'>|</span> <span class='val identifier id'>val</span><span class='dot token'>.</span><span class='begins_with? fid id'>begins_with?</span> <span class='string val'>&quot;unbound_&quot;</span><span class='rbrace token'>}</span>
+  <span class='unbound_vars identifier id'>unbound_vars</span> <span class='assign token'>=</span> <span class='unbound_vars identifier id'>unbound_vars</span><span class='dot token'>.</span><span class='map identifier id'>map</span><span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='val identifier id'>val</span><span class='bitor op'>|</span> <span class='val identifier id'>val</span><span class='dot token'>.</span><span class='slice identifier id'>slice</span><span class='lparen token'>(</span><span class='integer val'>8</span><span class='comma token'>,</span><span class='val identifier id'>val</span><span class='dot token'>.</span><span class='size identifier id'>size</span><span class='rparen token'>)</span><span class='rbrace token'>}</span>
+<span class='end end kw'>end</span>
+</pre>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+    </div>
+  
+</div>
+  </div>
+
+</div>
+    </div>
+  </body>
+</html>
