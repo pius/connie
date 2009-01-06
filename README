@@ -1,4 +1,4 @@
-Pomegranate Release 0.1 (January 5th 2009) 
+Connie Release 0.0.1 (January 5th 2009) 
 ===================================
 
 **Git**:  [http://github.com/pius/connie](http://github.com/pius/connie)   

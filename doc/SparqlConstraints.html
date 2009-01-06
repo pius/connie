@@ -39,52 +39,13 @@ you&#8217;ve got triple patterns e.
   
     <tr>
       <th class="signature">
-        <span class='name'><a href='#object_equals-class_method' title='object_equals'>object_equals</a></span><span class='args'>(trip, putative_object, mapping)</span>
-        <span class='block'></span>
-        
-      </th>
-      <td class="docstring">
-        
-        
-      </td>
-    </tr>
-  
-    <tr>
-      <th class="signature">
-        <span class='name'><a href='#predicate_equals-class_method' title='predicate_equals'>predicate_equals</a></span><span class='args'>(trip, putative_predicate, mapping)</span>
-        <span class='block'></span>
-        
-      </th>
-      <td class="docstring">
-        
-        
-      </td>
-    </tr>
-  
-    <tr>
-      <th class="signature">
-        <span class='name'><a href='#subject_equals-class_method' title='subject_equals'>subject_equals</a></span><span class='args'>(trip, putative_subject, mapping)</span>
-        <span class='block'></span>
-        
-      </th>
-      <td class="docstring">
-        <p>
-triple specific constraints.
-</p>
-
-        
-      </td>
-    </tr>
-  
-    <tr>
-      <th class="signature">
         <span class='name'><a href='#term_equals-class_method' title='term_equals'>term_equals</a></span><span class='args'>(terms, term_index, putative_term, mapping)</span>
         <span class='block'></span>
         
       </th>
       <td class="docstring">
         <p>
-alias_method :correspondence, :correspond_to term constraints.
+term constraints.
 </p>
 
         
@@ -149,148 +110,17 @@ sequence
           <pre class="lines">
 
 
-50
-51
 52
-53</pre>
+53
+54
+55</pre>
         </td>
         <td>
-          <pre class="code"><span class="info file"># File 'lib/connie.rb', line 50</span>
+          <pre class="code"><span class="info file"># File 'lib/connie.rb', line 52</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='correspond_to? fid id'>correspond_to?</span><span class='lparen token'>(</span><span class='val identifier id'>val</span><span class='comma token'>,</span> <span class='mapping identifier id'>mapping</span><span class='rparen token'>)</span>
   <span class='@@the_mapping ivar id'>@@the_mapping</span> <span class='opasgn op'>||=</span> <span class='mapping identifier id'>mapping</span>
   <span class='mapping identifier id'>mapping</span><span class='dot token'>.</span><span class='index identifier id'>index</span><span class='lparen token'>(</span><span class='val identifier id'>val</span><span class='rparen token'>)</span>
-<span class='end end kw'>end</span>
-</pre>
-        </td>
-      </tr>
-    </table>
-  </div>
-</div>
-</div>
-    </div>
-  
-    <div class="method">
-      <div class="method_header">
-  <h3>object_equals</h3>
-</div><div id="object_equals-class_method" class="section method">
-  <div class="details_title">
-  <div class='section methodsignature'>
-  <tt class='def'>
-    <span class='visibility'>public</span>
-    <span class='return_types'></span>
-    <span class='name'>object_equals</span><span class='args'>(trip, putative_object, mapping)</span>
-    <span class='block'></span>
-  </tt>
-</div>
-
-</div><div class="section source">
-  <span>[<a class="source_link" href="#">View source</a>]</span>
-  <div class="source_code">
-    <table>
-      <tr>
-        <td>
-          <pre class="lines">
-
-
-93
-94
-95</pre>
-        </td>
-        <td>
-          <pre class="code"><span class="info file"># File 'lib/connie.rb', line 93</span>
-
-<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='object_equals identifier id'>object_equals</span><span class='lparen token'>(</span><span class='trip identifier id'>trip</span><span class='comma token'>,</span> <span class='putative_object identifier id'>putative_object</span><span class='comma token'>,</span> <span class='mapping identifier id'>mapping</span><span class='rparen token'>)</span>
-  <span class='trip identifier id'>trip</span><span class='dot token'>.</span><span class='object identifier id'>object</span><span class='dot token'>.</span><span class='must identifier id'>must</span> <span class='eq op'>==</span> <span class='correspond_to? fid id'>correspond_to?</span><span class='lparen token'>(</span><span class='putative_object identifier id'>putative_object</span><span class='comma token'>,</span> <span class='mapping identifier id'>mapping</span><span class='rparen token'>)</span>
-<span class='end end kw'>end</span>
-</pre>
-        </td>
-      </tr>
-    </table>
-  </div>
-</div>
-</div>
-    </div>
-  
-    <div class="method">
-      <div class="method_header">
-  <h3>predicate_equals</h3>
-</div><div id="predicate_equals-class_method" class="section method">
-  <div class="details_title">
-  <div class='section methodsignature'>
-  <tt class='def'>
-    <span class='visibility'>public</span>
-    <span class='return_types'></span>
-    <span class='name'>predicate_equals</span><span class='args'>(trip, putative_predicate, mapping)</span>
-    <span class='block'></span>
-  </tt>
-</div>
-
-</div><div class="section source">
-  <span>[<a class="source_link" href="#">View source</a>]</span>
-  <div class="source_code">
-    <table>
-      <tr>
-        <td>
-          <pre class="lines">
-
-
-85
-86
-87</pre>
-        </td>
-        <td>
-          <pre class="code"><span class="info file"># File 'lib/connie.rb', line 85</span>
-
-<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='predicate_equals identifier id'>predicate_equals</span><span class='lparen token'>(</span><span class='trip identifier id'>trip</span><span class='comma token'>,</span> <span class='putative_predicate identifier id'>putative_predicate</span><span class='comma token'>,</span> <span class='mapping identifier id'>mapping</span><span class='rparen token'>)</span>
-  <span class='trip identifier id'>trip</span><span class='dot token'>.</span><span class='predicate identifier id'>predicate</span><span class='dot token'>.</span><span class='must identifier id'>must</span> <span class='eq op'>==</span> <span class='correspond_to? fid id'>correspond_to?</span><span class='lparen token'>(</span><span class='putative_predicate identifier id'>putative_predicate</span><span class='comma token'>,</span> <span class='mapping identifier id'>mapping</span><span class='rparen token'>)</span>
-<span class='end end kw'>end</span>
-</pre>
-        </td>
-      </tr>
-    </table>
-  </div>
-</div>
-</div>
-    </div>
-  
-    <div class="method">
-      <div class="method_header">
-  <h3>subject_equals</h3>
-</div><div id="subject_equals-class_method" class="section method">
-  <div class="details_title">
-  <div class='section methodsignature'>
-  <tt class='def'>
-    <span class='visibility'>public</span>
-    <span class='return_types'></span>
-    <span class='name'>subject_equals</span><span class='args'>(trip, putative_subject, mapping)</span>
-    <span class='block'></span>
-  </tt>
-</div>
-
-</div><div class="section docstring">
-  <p>
-triple specific constraints
-</p>
-
-</div><div class="section source">
-  <span>[<a class="source_link" href="#">View source</a>]</span>
-  <div class="source_code">
-    <table>
-      <tr>
-        <td>
-          <pre class="lines">
-
-
-81
-82
-83</pre>
-        </td>
-        <td>
-          <pre class="code"><span class="info file"># File 'lib/connie.rb', line 81</span>
-
-<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='subject_equals identifier id'>subject_equals</span><span class='lparen token'>(</span><span class='trip identifier id'>trip</span><span class='comma token'>,</span> <span class='putative_subject identifier id'>putative_subject</span><span class='comma token'>,</span> <span class='mapping identifier id'>mapping</span><span class='rparen token'>)</span>
-  <span class='trip identifier id'>trip</span><span class='dot token'>.</span><span class='subject identifier id'>subject</span><span class='dot token'>.</span><span class='must identifier id'>must</span> <span class='eq op'>==</span> <span class='correspond_to? fid id'>correspond_to?</span><span class='lparen token'>(</span><span class='putative_subject identifier id'>putative_subject</span><span class='comma token'>,</span> <span class='mapping identifier id'>mapping</span><span class='rparen token'>)</span>
 <span class='end end kw'>end</span>
 </pre>
         </td>
@@ -317,7 +147,7 @@ triple specific constraints
 
 </div><div class="section docstring">
   <p>
-alias_method :correspondence, :correspond_to term constraints
+term constraints
 </p>
 
 </div><div class="section source">
@@ -329,12 +159,12 @@ alias_method :correspondence, :correspond_to term constraints
           <pre class="lines">
 
 
-57
 58
-59</pre>
+59
+60</pre>
         </td>
         <td>
-          <pre class="code"><span class="info file"># File 'lib/connie.rb', line 57</span>
+          <pre class="code"><span class="info file"># File 'lib/connie.rb', line 58</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='term_equals identifier id'>term_equals</span><span class='lparen token'>(</span><span class='terms identifier id'>terms</span><span class='comma token'>,</span> <span class='term_index identifier id'>term_index</span><span class='comma token'>,</span> <span class='putative_term identifier id'>putative_term</span><span class='comma token'>,</span> <span class='mapping identifier id'>mapping</span><span class='rparen token'>)</span>
   <span class='terms identifier id'>terms</span><span class='lbrack token'>[</span><span class='term_index identifier id'>term_index</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='must identifier id'>must</span> <span class='eq op'>==</span> <span class='correspond_to? fid id'>correspond_to?</span><span class='lparen token'>(</span><span class='putative_term identifier id'>putative_term</span><span class='comma token'>,</span> <span class='mapping identifier id'>mapping</span><span class='rparen token'>)</span>
@@ -371,14 +201,14 @@ alias_method :correspondence, :correspond_to term constraints
           <pre class="lines">
 
 
-61
 62
 63
 64
-65</pre>
+65
+66</pre>
         </td>
         <td>
-          <pre class="code"><span class="info file"># File 'lib/connie.rb', line 61</span>
+          <pre class="code"><span class="info file"># File 'lib/connie.rb', line 62</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='term_must_fit_into identifier id'>term_must_fit_into</span><span class='lparen token'>(</span><span class='unbound_variables identifier id'>unbound_variables</span><span class='comma token'>,</span> <span class='unbound_term_index identifier id'>unbound_term_index</span><span class='comma token'>,</span> <span class='pattern identifier id'>pattern</span><span class='comma token'>,</span> <span class='universe identifier id'>universe</span><span class='comma token'>,</span> <span class='mapping identifier id'>mapping</span><span class='rparen token'>)</span>
   <span class='them identifier id'>them</span> <span class='assign token'>=</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='terms_with_patterns_that_otherwise_fit identifier id'>terms_with_patterns_that_otherwise_fit</span><span class='lparen token'>(</span><span class='pattern identifier id'>pattern</span><span class='comma token'>,</span> <span class='universe identifier id'>universe</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='collect identifier id'>collect</span> <span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='term identifier id'>term</span><span class='bitor op'>|</span> 
@@ -417,7 +247,6 @@ alias_method :correspondence, :correspond_to term constraints
           <pre class="lines">
 
 
-67
 68
 69
 70
@@ -428,10 +257,11 @@ alias_method :correspondence, :correspond_to term constraints
 75
 76
 77
-78</pre>
+78
+79</pre>
         </td>
         <td>
-          <pre class="code"><span class="info file"># File 'lib/connie.rb', line 67</span>
+          <pre class="code"><span class="info file"># File 'lib/connie.rb', line 68</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='terms_with_patterns_that_otherwise_fit identifier id'>terms_with_patterns_that_otherwise_fit</span><span class='lparen token'>(</span><span class='pattern identifier id'>pattern</span><span class='comma token'>,</span> <span class='universe identifier id'>universe</span><span class='rparen token'>)</span>
   <span class='mu identifier id'>mu</span> <span class='assign token'>=</span> <span class='universe identifier id'>universe</span><span class='dot token'>.</span><span class='select identifier id'>select</span> <span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='triple identifier id'>triple</span><span class='bitor op'>|</span> <span class='triple identifier id'>triple</span><span class='dot token'>.</span><span class='matches_pattern? fid id'>matches_pattern?</span><span class='lparen token'>(</span><span class='pattern identifier id'>pattern</span><span class='rparen token'>)</span><span class='rbrace token'>}</span>
@@ -439,7 +269,7 @@ alias_method :correspondence, :correspond_to term constraints
     <span class='return return kw'>return</span> <span class='mu identifier id'>mu</span><span class='dot token'>.</span><span class='collect identifier id'>collect</span> <span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='t identifier id'>t</span><span class='bitor op'>|</span> <span class='t identifier id'>t</span><span class='dot token'>.</span><span class='subject identifier id'>subject</span><span class='rbrace token'>}</span>
   <span class='end end kw'>end</span>
   <span class='unless unless kw'>unless</span> <span class='pattern identifier id'>pattern</span><span class='lbrack token'>[</span><span class='colon op'>:</span><span class='object identifier id'>object</span><span class='rbrack token'>]</span>
-    <span class='return return kw'>return</span> <span class='mu identifier id'>mu</span><span class='dot token'>.</span><span class='collect identifier id'>collect</span> <span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='t identifier id'>t</span><span class='bitor op'>|</span> <span class='t identifier id'>t</span><span class='dot token'>.</span><span class='object identifier id'>object</span><span class='rbrace token'>}</span><span class='comment val'>#.inspect</span>
+    <span class='return return kw'>return</span> <span class='mu identifier id'>mu</span><span class='dot token'>.</span><span class='collect identifier id'>collect</span> <span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='t identifier id'>t</span><span class='bitor op'>|</span> <span class='t identifier id'>t</span><span class='dot token'>.</span><span class='object identifier id'>object</span><span class='rbrace token'>}</span>
   <span class='end end kw'>end</span>
   <span class='unless unless kw'>unless</span> <span class='pattern identifier id'>pattern</span><span class='lbrack token'>[</span><span class='colon op'>:</span><span class='predicate identifier id'>predicate</span><span class='rbrack token'>]</span>
     <span class='return return kw'>return</span> <span class='mu identifier id'>mu</span><span class='dot token'>.</span><span class='collect identifier id'>collect</span> <span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='t identifier id'>t</span><span class='bitor op'>|</span> <span class='t identifier id'>t</span><span class='dot token'>.</span><span class='predicate identifier id'>predicate</span><span class='rbrace token'>}</span>
